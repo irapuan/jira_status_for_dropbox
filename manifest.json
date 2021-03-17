@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Jira status for Dropbox",
+  "version": "1.1",
+  "author": "Irapuan C Bottosso",
+  "description": "Jira status for Dropbox",
+  "icons": {
+    "48": "icons/jira-48.png",
+    "32": "icons/jira-32.png"
+  },
+  "permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.dropbox.com/*",
+        "https://drive.google.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "script.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.dropbox.com/*"
+        ,
+        "https://drive.google.com/*"
+      ],
+      "js": [
+        "script.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Nada"
+  }
+}
